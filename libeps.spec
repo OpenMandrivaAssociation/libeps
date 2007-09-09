@@ -1,12 +1,13 @@
-%define	rname	eps
+%define	rname eps
 
 %define	major 0
-%define libname	%mklibname %{rname} %{major}
+%define libname %mklibname %{rname} %{major}
+%define develname %mklibname %{rname} -d
 
 Summary:	EPS (Email Parsing System) library
 Name:		libeps
 Version:	1.5
-Release:	%mkrel 2
+Release:	%mkrel 3
 Group:		System/Libraries
 License:	GPL
 URL:		http://www.inter7.com/
@@ -30,15 +31,15 @@ to write their own email processing tools. Whether you want to
 process incoming and outgoing emails, or just analyze a message,
 this package is intended to aid in that endeavor. 
 
-%package -n	%{libname}-devel
+%package -n	%{develname}
 Summary:	Static library and header files for the libeps library
 Group:		Development/C
-Obsoletes:	%{rname}-devel lib%{rname}-devel
-Provides:	%{rname}-devel = %{version}
-Provides:	lib%{rname}-devel = %{version}
 Requires:	%{libname} = %{version}
+Provides:	%{rname}-devel = %{version}-%{release}
+Provides:	lib%{rname}-devel = %{version}-%{release}
+Obsoletes:	%{mklibname %{rname} 0 -d}
 
-%description -n	%{libname}-devel
+%description -n	%{develname}
 EPS (Email Parsing System) is intended to give people the ability
 to write their own email processing tools. Whether you want to
 process incoming and outgoing emails, or just analyze a message,
@@ -79,10 +80,8 @@ install -m0644 *.h %{buildroot}%{_includedir}/eps/
 %doc doc/* mess ChangeLog TODO
 %{_libdir}/*.so.*
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %{_includedir}/eps
 %{_libdir}/*.so
 %{_libdir}/*.a
-
-

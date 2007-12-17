@@ -13,7 +13,6 @@ License:	GPL
 URL:		http://www.inter7.com/
 Source0:	http://www.inter7.com/eps/%{rname}-%{version}.tar.bz2
 Patch0:		eps-1.5-shared.diff
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
 EPS (Email Parsing System) is intended to give people the ability

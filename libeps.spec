@@ -7,13 +7,13 @@
 Summary:	EPS (Email Parsing System) library
 Name:		libeps
 Version:	1.5
-Release:	%mkrel 3
+Release:	%mkrel 4
 Group:		System/Libraries
 License:	GPL
 URL:		http://www.inter7.com/
 Source0:	http://www.inter7.com/eps/%{rname}-%{version}.tar.bz2
 Patch0:		eps-1.5-shared.diff
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 EPS (Email Parsing System) is intended to give people the ability
@@ -58,7 +58,7 @@ needed to compile applications such as stegdetect, etc.
 make CFLAGS="%{optflags} -fPIC -DPIC"
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 install -d %{buildroot}%{_libdir}
 install -d %{buildroot}%{_includedir}/eps
@@ -77,7 +77,7 @@ install -m0644 *.h %{buildroot}%{_includedir}/eps/
 %endif
 
 %clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files -n %{libname}
 %defattr(-,root,root)

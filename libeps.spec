@@ -7,7 +7,7 @@
 Summary:	EPS (Email Parsing System) library
 Name:		libeps
 Version:	1.5
-Release:	%mkrel 4
+Release:	%mkrel 5
 Group:		System/Libraries
 License:	GPL
 URL:		http://www.inter7.com/

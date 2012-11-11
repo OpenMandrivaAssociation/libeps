@@ -1,0 +1,38 @@
+--- Makefile	2003-05-15 19:48:17.000000000 +0200
++++ Makefile.oden	2005-02-09 19:33:00.305657312 +0100
+@@ -2,6 +2,7 @@
+ AR = ar
+ STRIP = strip
+ LIB = libeps.a
++CFLAGS = $(RPM_OPT_FLAGS) -Wall -fPIC
+ 
+ AROPTS = -cru
+ RANLIB = ranlib
+@@ -16,19 +17,22 @@
+ 	boundary.c mime.c address.c base64.c fold.c int_buffer.c qp.c
+ DEPS = $(INCS) $(SRCS) Makefile
+ 
+-DEFS = -Wall -I.
+-
+-all: $(LIB)
++all: $(LIB) shared
+ 
+ $(LIB): $(OBJS)
+ 	$(AR) $(AROPTS) $(LIB) $(OBJS)
+ 	$(RANLIB) $(LIB)
+ 
++shared: $(OBJS)
++	$(CC) $(CFLAGS) -shared -Wl,-soname=libeps.so.0 -o \
++	libeps.so.0 $(OBJS)
++	ln -snf libeps.so.0 libeps.so
++
+ $(OBJS): $(DEPS)
+-	$(CC) $(DEFS) -o $@ -c $*.c
++	$(CC) $(CFLAGS) -I. -o $@ -c $*.c
+ 
+ clean:
+-	rm -f *.o *.core core $(LIB)
++	rm -f *.o *.core core $(LIB) *.so*
+ 
+ install:
+ 	mkdir -p $(LIBDIR)

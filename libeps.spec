@@ -89,3 +89,42 @@ rm -rf %{buildroot}
 %{_includedir}/eps
 %{_libdir}/*.so
 %{_libdir}/*.a
+
+
+%changelog
+* Fri Dec 10 2010 Oden Eriksson <oeriksson@mandriva.com> 1.5-6mdv2011.0
++ Revision: 620120
+- the mass rebuild of 2010.0 packages
+
+* Fri Sep 04 2009 Thierry Vignaud <tv@mandriva.org> 1.5-5mdv2010.0
++ Revision: 429727
+- rebuild
+
+* Sun Jul 20 2008 Oden Eriksson <oeriksson@mandriva.com> 1.5-4mdv2009.0
++ Revision: 239060
+- rebuild
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Sun Sep 09 2007 Oden Eriksson <oeriksson@mandriva.com> 1.5-3mdv2008.0
++ Revision: 83753
+- new devel naming
+
+
+* Fri Dec 08 2006 Oden Eriksson <oeriksson@mandriva.com> 1.5-2mdv2007.0
++ Revision: 93751
+- Import libeps
+
+* Sat Apr 29 2006 Oden Eriksson <oeriksson@mandriva.com> 1.5-2mdk
+- rebuild
+
+* Wed Feb 09 2005 Oden Eriksson <oeriksson@mandrakesoft.com> 1.5-1mdk
+- initial Mandrakelinux package
+

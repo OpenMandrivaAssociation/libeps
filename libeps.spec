@@ -10,7 +10,7 @@ Version:	1.5
 Release:	7
 Group:		System/Libraries
 License:	GPL
-URL:		http://www.inter7.com/
+URL:		https://www.inter7.com/
 Source0:	http://www.inter7.com/eps/%{rname}-%{version}.tar.bz2
 Patch0:		eps-1.5-shared.diff
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
